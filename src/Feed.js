@@ -3,8 +3,8 @@ import './Feed.css';
 import InputOption from './InputOption';
 import Post from './Post';
 import { CalendarViewDay, Create, EventNote, Image, Subscriptions } from '@mui/icons-material';
-import { db } from './firebase'
 import firebase from 'firebase';
+import { db } from './firebase'
 
 function Feed() {
 

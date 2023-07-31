@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './Header';
-import Sidebar from './features/Sidebar';
+import Sidebar from './Sidebar';
 import Feed from './Feed';
 import { selectUser } from './features/userSlice';
 import { useSelector } from 'react-redux/es/hooks/useSelector';

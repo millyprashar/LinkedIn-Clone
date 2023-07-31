@@ -16,7 +16,7 @@ export default class Header extends Component {
             <img src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/>
             <div className="header__search">
                 <Search />
-                <input type="text" />
+                <input placeholder='Search' type="text" />
             </div>
         </div>
 
