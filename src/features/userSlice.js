@@ -45,7 +45,7 @@ export const userSlice = createSlice({
       })
       .addCase(incrementAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value += action.payload;
+        state.user += action.payload;
       });
   },
 });

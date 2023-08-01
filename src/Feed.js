@@ -7,7 +7,6 @@ import firebase from 'firebase';
 import { db } from './firebase'
 
 function Feed() {
-
     const [input, setInput] = useState('')
     const [posts, setPosts] = useState([])
 
@@ -39,7 +38,7 @@ function Feed() {
             <div className="feed__input">
                 <Create />
                 <form>
-                    <input value={input} onChange={e => setInput(e.target.value)} type='text'></input>
+                    <input value={input} onChange={(e) => setInput(e.target.value)} type='text'></input>
                     <button onClick={sendPost} type='submit'>Send</button>
                 </form>
             </div>

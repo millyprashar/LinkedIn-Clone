@@ -5,6 +5,7 @@ import { Avatar } from '@mui/material'
 import { ChatOutlined, SendOutlined, ShareOutlined, ThumbsUpDownOutlined } from '@mui/icons-material'
 
 function Post({ name, description, message, photoUrl }) {
+
   return (
     <div className="post">
         <div className="post__header">
