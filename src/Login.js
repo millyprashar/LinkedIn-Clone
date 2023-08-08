@@ -9,7 +9,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [profilePic, setProfilePic] = useState("");
+  const [photoURL, setProfilePic] = useState("");
   const dispatch = useDispatch();
 
   const loginToApp = (e) => {
@@ -22,7 +22,7 @@ function Login() {
             email: userAuth.user.email,
             uid: userAuth.user.uid,
             displayName: userAuth.user.displayName,
-            profileURL: userAuth.user.photoURL,
+            photoURL: userAuth.user.photoURL,
           })
         );
       })
@@ -37,7 +37,7 @@ function Login() {
     auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
       userAuth.user.updateProfile({
         displayName: name,
-        photoURL: profilePic,
+        photoURL: photoURL,
       })
       .then(() => {
         dispatch(
@@ -45,7 +45,7 @@ function Login() {
             email: userAuth.user.email,
             uid: userAuth.user.uid,
             displayName: userAuth.user.displayName,
-            profileURL: userAuth.user.photoURL,
+            photoURL: userAuth.user.photoURL,
         })
       );
       });
@@ -57,7 +57,7 @@ function Login() {
       <img src="https://img.icons8.com/color/48/linkedin.png" alt="" />
       <form>
         <input value={name} onChange={(e) => setName(e.target.value)} placeholder='Full Name (required if registering)' type='text' />
-        <input value={profilePic} onChange={(e) => setProfilePic(e.target.value)} placeholder='Profile Pic URL (optional)' type='text' />
+        <input value={photoURL} onChange={(e) => setProfilePic(e.target.value)} placeholder='Profile Pic URL (optional)' type='text' />
         <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' type='email' />
         <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' type='password' />
         <button type='submit' onClick={loginToApp}>Sign In</button>

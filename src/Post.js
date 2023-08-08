@@ -4,12 +4,12 @@ import InputOption from './InputOption'
 import { Avatar } from '@mui/material'
 import { ChatOutlined, SendOutlined, ShareOutlined, ThumbsUpDownOutlined } from '@mui/icons-material'
 
-function Post({ name, description, message, photoUrl }) {
+function Post({ name, description, message, photoURL }) {
 
   return (
     <div className="post">
         <div className="post__header">
-            <Avatar />
+            <Avatar src={photoURL}/>
         <div className="post__info">
             <h2>{name}</h2>
             <p>{description}</p>

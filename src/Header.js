@@ -10,10 +10,8 @@ import { Chat } from '@mui/icons-material';
 import { Notifications } from '@mui/icons-material';
 import { logout } from './features/userSlice';
 import { auth } from './firebase';
-import { Avatar } from '@mui/material';
 
 function Header() {
-
   const dispatch = useDispatch();
 
   const logoutofApp = () => {
@@ -36,7 +34,7 @@ function Header() {
             <HeaderOption Icon={BusinessCenter } title='Jobs' />
             <HeaderOption Icon={Chat} title='Messaging' />
             <HeaderOption Icon={Notifications} title='Notifications' />
-            <HeaderOption avatar={Avatar} title='Me' onClick={logoutofApp} />
+            <HeaderOption avatar={true} title={"Me"} onClick={logoutofApp} />
         </div>
       </div>
     )

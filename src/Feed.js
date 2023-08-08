@@ -5,11 +5,13 @@ import Post from './Post';
 import { CalendarViewDay, Create, EventNote, Image, Subscriptions } from '@mui/icons-material';
 import firebase from 'firebase';
 import { db } from './firebase'
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { selectUser } from './features/userSlice';
 
 function Feed() {
-    const [input, setInput] = useState('')
-    const [posts, setPosts] = useState([])
-
+    const [input, setInput] = useState('');
+    const [posts, setPosts] = useState([]);
+    const user = useSelector(selectUser);
     useEffect(() => {
         db.collection("posts").orderBy('timestamp', 'desc').onSnapshot((snapshot) =>
             setPosts(
@@ -24,10 +26,10 @@ function Feed() {
     const sendPost = (e) => {
         e.preventDefault();
         db.collection('posts').add({
-            name: 'Milly Prashar',
-            description: 'this is a test',
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: '',
+            photoURL: user.photoURL,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
         setInput("");
@@ -50,13 +52,13 @@ function Feed() {
             </div>
         </div>
         {/* Posts */}
-        {posts.map(({id, data: {name, description, message, photoUrl }}) => (
+        {posts.map(({id, data: {name, description, message, photoURL }}) => (
             <Post
                 key={id}
                 name={name}
                 description={description}
                 message={message}
-                photoUrl={photoUrl}
+                photoURL={photoURL}
             />
         ))}
     </div>
