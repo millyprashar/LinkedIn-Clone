@@ -15,8 +15,7 @@ function Login() {
   const loginToApp = (e) => {
     e.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userAuth) => {
+    auth.signInWithEmailAndPassword(email, password).then((userAuth) => {
         dispatch(
           login({
             email: userAuth.user.email,
